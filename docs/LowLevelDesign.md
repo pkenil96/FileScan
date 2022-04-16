@@ -2,8 +2,8 @@
 
 1. FileScanApp
 
-```POST /hash```
+  POST ```/hash```
 
-```GET /cache/lookup```
+  GET ```/cache/lookup```
 
-```POST /cache/update```
+  POST ```/cache/update```
