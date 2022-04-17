@@ -1,5 +1,5 @@
 # FileScan
-This simple application takes a file and his/her email address/phone number. It then scans the file and sends a summary of the file and whether it is safe or not via email/phone to the user.
+This simple application takes a file and an email address/phone number. It then scans the file and sends a summary of the meta data of the file and whether it is safe or not via email/phone to the user.
 
 ## Architecture
 
