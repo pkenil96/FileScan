@@ -5,24 +5,24 @@ This simple application takes a file and his/her email address/phone number. It 
 
 Microservices - Each microservice will be a spring boot application.  
 
-* FileScanApp: User facing main app that accepts email or phone and a file to scan
-* StorageManager: Accepts owner info and file. Uploads it to cloud and return public URL
-* MessagePublisher: Accpets owner info and file URL. Publishes it to the queue
-* AntiVirusScanner: Accpets owner info and file URL. Scans for virues and publish result to queue
-* MetaDataExtractor: Accpets owner info and file URL. Extracts metadata from file and publish result to queue
-* Notifier: Accepts owner info and the result and pass it on to the EmailMessager or PhoneMessager
-* EmailMessager: Accepts owner info and the result and sends out email to user
-* PhoneMessager: Accepts owner info and the result and sends out text message to user
+1. FileScanApp: User facing main app that accepts email or phone and a file to scan
+2. StorageManager: Accepts owner info and file. Uploads it to cloud and return public URL
+3. MessagePublisher: Accpets owner info and file URL. Publishes it to the queue
+4. AntiVirusScanner: Accpets owner info and file URL. Scans for virues and publish result to queue
+5. MetaDataExtractor: Accpets owner info and file URL. Extracts metadata from file and publish result to queue
+6. Notifier: Accepts owner info and the result and pass it on to the EmailMessager or PhoneMessager
+7. EmailMessager: Accepts owner info and the result and sends out email to user
+8. PhoneMessager: Accepts owner info and the result and sends out text message to user
 
 ## Tech Stack Used
   
-* Spring Boot (StorageManager, MessagePublisher, MetaDataExtractor, AntiVirusScanner, Notifier)
-* Flask (FileScanApp, EmailMessager, PhoneMessager)
-* RabbitMQ (MessageQueue)
-* Bucket4JS (Rate Limiter)
-* Redis (Caching)
-* Docker (Deploying Redis Server)
-* Spring Cloud: Eureka Netflix (Service Discovery)
+1. Spring Boot (StorageManager, MessagePublisher, MetaDataExtractor, AntiVirusScanner, Notifier)
+2. Flask (FileScanApp, EmailMessager, PhoneMessager)
+3. RabbitMQ (MessageQueue)
+4. Bucket4JS (Rate Limiter)
+5. Redis (Caching)
+6. Docker (Deploying Redis Server)
+7. Netflix Eureka Service Discovery (Service Discovery)
 
 
 ## Architecture Diagram
