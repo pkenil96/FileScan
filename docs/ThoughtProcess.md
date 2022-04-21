@@ -18,8 +18,6 @@ The current architecture is vulnerable to spam emails. Attacker can user spam em
 ## Implementation
 
 **Placement of the redis server**
-
 The first service I started implementing was the FileScanApp. The first question to address while implemeting the FileScanApp was to decide the placement of the Redis Server for caching. It certainly needed to be between the FileScanApp and the StorageManager. Secondly, should there be a separate cache server for each microservice or a common for all.
 
-Deploying Docker image to run Redis Server
-
+Deploying Docker image to run Redis Server.
