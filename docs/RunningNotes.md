@@ -8,7 +8,6 @@
 4. Flask
 5. Service Discovery
 
-
 ---
 
 ## Docker
@@ -20,19 +19,37 @@
 5. chroot
 6. namespaces
 
+**chroot** - Used for file-level isolation (jailing).
 
-chroot - Used for file-level isolation. (Jailing)
-This command changes the apparent root directory for the currently running process. When this command is executed in a directory, that directory becomes the root directory for that process and it cannot see anything beyond that directoy without root priveleges. 
+This command changes the apparent root directory for the currently running process. When this command is executed in a directory, that directory becomes the root directory for that process and it cannot see anything beyond that directoy without root priveleges.
 
-**Similarly, there are tools to provide resource level isolation which if used in conjugation with one another maybe used to create altogether a different machine (like VM) within the same machine**
+Similarly, there are tools to provide resource level isolation which if used in conjugation with one another maybe used to create altogether a different machine (like VM) within the same machine.
 
-namespaces - Used for resource-level isolation.
+**namespaces** - Used for resource-level isolation.
+
 It partitions resources such that one set of processes sees one set of resources while another set of process sees different set of resources.
 
-cgroup - Used for setting resource consumption limit.
+**cgroup** - Used for setting resource consumption limit.
+
 It is used to limit the amount of resources used per process.
 
+* cgroups and namespaces are specific to Linux. So, whenever docker is installed on a macOs or Windows, internally, a linux virtual machine is created and the containers are then created on this LVM.
+
 https://www.youtube.com/watch?v=FzwIs2jMESM
+
+Useful commands:
+
+1. Running a docker image
+> docker run <docker image>
+This creates/Fetches and run image
+If an image is present in the image cache, the client simply runs it, else if fetches the required image from docker hub and then runs it.
+
+A docker image has a filesystem snapshot and a startup command to run. So, whenever docker image is run, the command specified in the image is run. However, we can override this default behaviour as shown below:
+
+> docker run <docker image> <overriding command>
+
+2. Listing running containers
+> docker ps
 ---
 
 ## Messaging Queue
