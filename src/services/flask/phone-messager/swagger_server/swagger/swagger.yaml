@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Phone Messager App
+  description: API that sends the file scan report as text message to the user
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/pkenil96/PhoneMessager/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /send/sms:
+    post:
+      tags:
+      - developers
+      - admins
+      summary: sends SMS to the user
+      description: sends SMS to the user
+      operationId: send_sms
+      requestBody:
+        description: SMS Object to be sent
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSObject'
+      responses:
+        "200":
+          description: message sent
+        "400":
+          description: "invalid input, object invalid"
+        "409":
+          description: message already sent
+      x-openapi-router-controller: swagger_server.controllers.developers_controller
+components:
+  schemas:
+    SMSObject:
+      required:
+      - messageBody
+      - phoneNumber
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+          example: +1(123)-456-7890
+        messageBody:
+          type: object
+
