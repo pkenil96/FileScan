@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Email Messager App
+  description: API that sends the file scan report as email message to the user
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/pkenil96/EmailMessager/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /send/email:
+    post:
+      tags:
+      - admins
+      - developers
+      summary: sends email to the user
+      description: sends email to the user
+      operationId: send_email
+      requestBody:
+        description: Email Object to be sent
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailObject'
+      responses:
+        "200":
+          description: message sent
+        "400":
+          description: "invalid input, object invalid"
+        "409":
+          description: message already sent
+      x-openapi-router-controller: swagger_server.controllers.admins_controller
+components:
+  schemas:
+    EmailObject:
+      required:
+      - emailId
+      - messageBody
+      type: object
+      properties:
+        emailId:
+          type: string
+          example: user@domain.com
+        messageBody:
+          type: object
+
