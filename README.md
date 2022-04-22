@@ -1,4 +1,5 @@
 # FileScan
+
 This simple application takes a file and an email address/phone number. It then scans the file and sends a summary of the meta data of the file and whether it is safe or not via email/phone to the user.
 
 ## Architecture
@@ -17,6 +18,13 @@ Microservices
 6. *Notifier*: Accepts owner info and the result and pass it on to the *EmailMessager* or *PhoneMessager*
 7. *EmailMessager*: Accepts owner info and the result and sends out email to user
 8. *PhoneMessager*: Accepts owner info and the result and sends out text message to user
+
+## Topics of Interest
+
+1. Docker
+2. Message Queue
+3. Service Discovery
+4. Caching
 
 ## Tech Stack Used
   
@@ -40,12 +48,12 @@ Microservices
 
 ## Future Scope
 
-1. Adding authentication
-  - OAuth
-  - SSO (3rd party login)
-2. Adding multiple cloud providers
-  - Google Cloud Storage
-  - Azure Blob Storage
-  - Google Drive
-  - Dropbox
-3. Deploy the app to GCP App Engine
+1.Adding authentication
+    - OAuth
+    - SSO (3rd party login)
+2.Adding multiple cloud providers
+    - Google Cloud Storage
+    - Azure Blob Storage
+    - Google Drive
+    - Dropbox
+3.Deploy the app to GCP App Engine
